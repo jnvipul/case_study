@@ -1,2 +1,4 @@
 data/*
 *.pyc
+
+flask_app/data/*.joblib
