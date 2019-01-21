@@ -15,8 +15,8 @@ import pandas as pd
 import numpy as np
 from pprint import pprint
 import string
-import json
 from flask_cors import CORS
+from predictor import read_model, read_precomputes, predict
 
 
 app = Flask(__name__)
@@ -28,5 +28,12 @@ def home():
     return "Welcome to Renthop home"
 
 
+def setup():
+    read_model()
+    read_precomputes()
+    print(predict(pd.read_csv('data/sample_input.csv')))
+
+
 if __name__ == '__main__':
+    setup()
     app.run(debug=True)
