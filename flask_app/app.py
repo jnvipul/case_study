@@ -9,7 +9,6 @@ __email__ = "messagevipul@gmail.com"
 from flask import Flask
 import os
 import collections
-import smart_open
 import random
 import pandas as pd
 import numpy as np
