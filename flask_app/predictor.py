@@ -109,6 +109,7 @@ def read_manager_scores():
 def read_precomputes():
     read_manager_scores()
     read_scaler()
+    print("Loaded precomputes successfully")
 
 
 def read_model():
@@ -118,14 +119,13 @@ def read_model():
     if clf is None:
         # Throw Exception
         print('Loaded model is Null')
+    print("Loaded model successfully")
 
 
 def predict(test_df):
     test_df = feature_engineering(test_df)
 
     X_test = test_df[get_feature_list()]
-    for col in X_test.columns:
-        print(X_test[col])
     X_test = scaler.transform(X_test)
     y = clf.predict_proba(X_test)
 

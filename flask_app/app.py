@@ -6,17 +6,10 @@ __email__ = "messagevipul@gmail.com"
 
 
 # imports
-from flask import Flask
-import os
-import collections
-import random
+from flask import Flask, request, abort
 import pandas as pd
-import numpy as np
-from pprint import pprint
-import string
 from flask_cors import CORS
 from predictor import read_model, read_precomputes, predict
-
 
 app = Flask(__name__)
 CORS(app)
@@ -27,12 +20,21 @@ def home():
     return "Welcome to Renthop home"
 
 
+@app.route("/predict_interest", methods=['POST'])
+def predict_interest():
+    if not request.json:
+        abort(400)
+    df = pd.DataFrame(request.json)
+    result_df = predict(df)
+    return result_df.to_json(orient='records')
+
+
 def setup():
     read_model()
     read_precomputes()
-    print(predict(pd.read_csv('data/sample_input.csv')))
+    return None
 
 
 if __name__ == '__main__':
     setup()
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=4000, debug=True)
