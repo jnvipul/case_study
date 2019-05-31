@@ -1,7 +1,11 @@
 # Renthop
+
+## Objective 
+To predict quality(low, med, high) of a rental listing given all the listing details data.
+
 ### Default branch - *dev*
 
-#### Highly Recommended - Kindly read this 1st
+#### Highly Recommended - Kindly read this first
 I have created this summary [document](https://paper.dropbox.com/doc/Summary--AWIinaBFyA3d0Gb2P9QaguO1AQ-JZSQxbtFyiKeTQwad2KYN) to jot down my thought process, steps and to answer the asked questions. Kindly go through this as the first thing. 
 
 Contact : I would be happy to answer any questions on Whatsapp(+65-87503627) or Email(messagevipul@gmail.com)
